@@ -17,12 +17,18 @@ body, .video-controls,.video-timer, .options{
     justify-content: center;
 }
 .container{
-    max-width: 900px;
-    width: 98%;
+    max-width: 100%;
+    width: 100%;
     background: black;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+}
+.container.fullscreen{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: fit-content;
 }
 .video-controls{
     padding: 5px 20px 10px;
@@ -74,7 +80,7 @@ body, .video-controls,.video-timer, .options{
 }
 .progress-area .progress-bar{
     height: 100%;
-    width: 50%;
+    width: 0%;
     position: relative;
     background: #2289ff;
 }
@@ -110,9 +116,19 @@ body, .video-controls,.video-timer, .options{
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: -15px;
     z-index: 1;
+    /* opacity: 0;
+    pointer-events: none;
+    transition: all 0.08s ease; */
 }
+/* .container.container.show-controls.wrapper{
+    bottom: 0px;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.13s ease;
+   
+} */
 wrapper::before{
     content: "";
     width: 100%;
@@ -140,7 +156,7 @@ wrapper::before{
     background: #fff;
     transition: opacity 0.13ms ease;
 }
-.playback-content button:hover ~ .speed-options{
+.playback-content .speed-options.show{
     opacity: 1;
     pointer-events: auto;
 }
